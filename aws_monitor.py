@@ -58,10 +58,10 @@ def check_and_update_log_group_retention():
 
         if retention_in_days is None:
             print(f'Log group {log_group_name} does not have a retention policy. Applying 30-day retention policy.')
-            # client.put_retention_policy(
-            #     logGroupName=log_group_name,
-            #     retentionInDays=30
-            # )
+            client.put_retention_policy(
+                logGroupName=log_group_name,
+                retentionInDays=30
+            )
         else:
             print(f'Log group {log_group_name} already has a retention policy of {retention_in_days} days.')
 
